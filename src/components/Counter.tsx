@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 // Props and types for Counter
 interface CounterProps {
@@ -10,6 +10,7 @@ function expensiveCompute(initialValue: number) {
 
   const numericValue = Number(initialValue);
   if (!isNaN(numericValue)) {
+    // must be number
     return numericValue;
   } else {
     return 0;
@@ -20,7 +21,10 @@ function expensiveCompute(initialValue: number) {
 const Counter = ({ initialValue }: CounterProps) => {
   console.log("Counter rendered");
 
-  const expensiveComputeValue = expensiveCompute(initialValue);
+  const expensiveComputeValue = useMemo(
+    () => expensiveCompute(initialValue),
+    [initialValue]
+  );
 
   const [count, setCount] = useState<number>(0);
 
