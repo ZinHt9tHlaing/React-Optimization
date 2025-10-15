@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 
 // Props and types for InitialSetup
 interface InitialSetupProps {
@@ -41,4 +41,4 @@ const InitialSetup = ({ onSetup }: InitialSetupProps) => {
   );
 };
 
-export default InitialSetup;
+export default memo(InitialSetup);

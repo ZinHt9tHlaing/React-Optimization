@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 
 // Props and types for Counter
 interface CounterProps {
@@ -43,4 +43,4 @@ const Counter = ({ initialValue }: CounterProps) => {
   );
 };
 
-export default Counter;
+export default memo(Counter);

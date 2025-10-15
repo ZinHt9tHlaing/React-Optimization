@@ -11,11 +11,11 @@ const App = () => {
   const [isSmartMode, setIsSmartMode] = useState<boolean>(false);
   const [initialValue, setInitialValue] = useState<number>(0);
 
-  const onSetupHandler = (inputValue: number) => {
+  const onSetupHandler = useCallback((inputValue: number) => {
     console.log("onSetupHandler in App - function called");
 
     setInitialValue(inputValue);
-  };
+  }, []);
 
   const modeHandler = useCallback(() => {
     console.log("modeHandler in App - function called");
