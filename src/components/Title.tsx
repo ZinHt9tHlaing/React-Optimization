@@ -1,9 +1,18 @@
 import { memo } from "react";
 
-const Title = () => {
+interface onChangeModeProps  {
+  onChangeMode: () => void;
+}
+
+const Title = ({ onChangeMode }: onChangeModeProps ) => {
   console.log("Title rendered");
 
-  return <h1>Optimization: memo, useMemo, useCallback</h1>;
+  return (
+    <>
+      <h1>Optimization: memo, useMemo, useCallback</h1>
+      <button onClick={onChangeMode}>Toggle Mode</button>
+    </>
+  );
 };
 
 export default memo(Title);
